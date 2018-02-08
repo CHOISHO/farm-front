@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="농기구다 있어요">
+<meta name="keywords" content="농사 농업">
+<meta property="og:title" content="농사짓자">
+<meta property="og:type" content="website">
+<meta property="og:description" content="농업">
+<link rel="shortcut icon" type="image/png" href="static/img/favicon.ico">
+<title>FARM</title>
+<link rel="stylesheet" href="css/style.css">            
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h2 class="container">FARMMY</h2>        
+            <form v-on:submit.prevent="onSubmit">
+                <input type="text" v-model="query" v-on:keyup="onKeyup" placeholder="검색어를 입력하세요" autofocus>
+                <button v-show="query.length" v-on:click="onReset" type="reset" class="btn-reset"></button>            
+            </form>
+            <span>필터</span>
+            <nav>
+                <a href="">지식창고</a>
+                <a href="">Contact Us</a>        
+            </nav>
+        </header>
+        <div class="login_">
+            <form action="">
+                <input class="user-id" type="text">
+                <input class="user-pass" type="password">
+                <button class=""></button>
+            </form>
+            <a href="">회원가입</a>            
+        </div>
+        <section class="categories">
+            <ul class="tabs">
+                <li v-for="tab in tabs" v-bind:class="{active: tab === selectedTab}"
+                v-on:click="onClickTab(tab)">
+                {{tab}}
+                </li>
+            </ul>
+        </section>
+        <section class="fun-farms">
+            <h2>재미있는 농사이야기</h2>
+            <ul class="">
+                <li v-for="story in storyBox">
+                    <p>이미지</p>
+                    <span>{{story}}</span>
+                </li>
+            </ul>
+        </section>
+        <section class="farm-direction">
+            <h2>농사직설</h2>
+            <ul class="">
+                <li></li>
+            </ul>
+        </section>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="module" src="./js/app.js"></script>
+</body>
+</html>
